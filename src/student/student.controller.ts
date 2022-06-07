@@ -20,7 +20,8 @@ export class StudentController {
   async createStudent(@Res() response, @Body() student: student) {
     const newStudent = await this.studentService.create(student);
     return response.status(HttpStatus.CREATED).json({
-      newStudent,
+      newStudent: newStudent,
+      msg: 'student created sucessfully',
     });
   }
 
